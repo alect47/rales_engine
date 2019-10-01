@@ -21,7 +21,7 @@ gem 'puma', '~> 3.7'
 gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'fast_jsonapi'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
@@ -34,6 +34,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do

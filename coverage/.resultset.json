@@ -406,7 +406,6 @@
         1,
         null,
         1,
-        null,
         1,
         null,
         null,
@@ -437,8 +436,14 @@
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/application_controller.rb": [
         1,
         null
+      ],
+      "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/serializers/customer_serializer.rb": [
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1569961379
+    "timestamp": 1569962764
   }
 }
