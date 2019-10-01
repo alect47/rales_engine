@@ -1,19 +1,41 @@
 require 'CSV'
 
 namespace :import do
-  desc "Import prospects from CSV file"
+  desc "Import info from CSV file"
 
-  task prospect: :environment do
-    CSV.foreach('.../3000-prospects.csv', headers:true) do |row|
-      Prospect.create(row.to_h)
+  task customers: :environment do
+    CSV.foreach('./db/data/customers.csv', headers:true) do |row|
+      Customer.create!(row.to_h)
+    end
   end
 
-  desc "TODO"
-  task create: :environment do
+  task invoice_items: :environment do
+    CSV.foreach('./db/data/invoice_items.csv', headers:true) do |row|
+      InvoiceItem.create!(row.to_h)
+    end
   end
 
-  desc "TODO"
-  task lib/tasks/import.rake: :environment do
+  task invoices: :environment do
+    CSV.foreach('./db/data/invoices.csv', headers:true) do |row|
+      Invoice.create!(row.to_h)
+    end
   end
 
+  task items: :environment do
+    CSV.foreach('./db/data/items.csv', headers:true) do |row|
+      Item.create!(row.to_h)
+    end
+  end
+
+  task merchants: :environment do
+    CSV.foreach('./db/data/merchants.csv', headers:true) do |row|
+      Merchant.create!(row.to_h)
+    end
+  end
+
+  task transactions: :environment do
+    CSV.foreach('./db/data/transactions.csv', headers:true) do |row|
+      Transaction.create!(row.to_h)
+    end
+  end
 end
