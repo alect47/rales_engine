@@ -215,7 +215,7 @@
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/factories/merchants.rb": [
         1,
         1,
-        7,
+        11,
         null,
         null
       ],
@@ -237,6 +237,7 @@
         1,
         1,
         null,
+        1,
         1,
         1,
         1,
@@ -529,6 +530,32 @@
         null,
         null
       ],
+      "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/requests/api/v1/merchants_request_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/requests/api/v1/transactions_request_spec.rb": [
         1,
         null,
@@ -614,6 +641,23 @@
         1,
         null
       ],
+      "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/api/v1/merchants_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/serializers/merchant_serializer.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/api/v1/transactions_controller.rb": [
         1,
         1,
@@ -632,6 +676,6 @@
         null
       ]
     },
-    "timestamp": 1570023936
+    "timestamp": 1570024316
   }
 }
