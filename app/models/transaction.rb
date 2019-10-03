@@ -6,4 +6,8 @@ class Transaction < ApplicationRecord
   belongs_to :invoice
 
   scope :successful, -> {where(result:"success")}
+
+  def self.order_transaction
+    order(:id)
+  end
 end
