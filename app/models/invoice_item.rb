@@ -6,4 +6,8 @@ class InvoiceItem < ApplicationRecord
 
   belongs_to :item
   belongs_to :invoice
+
+  def self.order_invoice_item
+    order(:id)
+  end
 end
