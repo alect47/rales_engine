@@ -9,7 +9,9 @@ end
 #
 # Invoice.joins(:invoice_items, :transactions).select("sum(quantity * unit_price) as revenue
 # ").where(" 'invoice.created_at.strftime("%m/%d/%Y")' = '03/25/2012'";)
-
+def revenue_on_date(date)
+  
+end
 Invoice.joins(:transactions, :invoice_items)
   .select('sum(invoice_items.quantity * invoice_items.unit_price) AS revenue')
   .where("date(invoices.created_at) = '2012-03-09'")
