@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-03T09:28:00-06:00">2019-10-03T09:28:00-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-03T10:52:15-06:00">2019-10-03T10:52:15-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>57</b> files in total.
-    <b>408</b> relevant lines. 
-    <span class="green"><b>408</b> lines covered</span> and
+    <b>413</b> relevant lines. 
+    <span class="green"><b>413</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -263,11 +263,11 @@
       <tr>
         <td class="strong"><a href="#c24f7d7ac29b91e4926b0c9a28a8b9a0f8dc01dd" class="src_link" title="app/serializers/item_serializer.rb">app/serializers/item_serializer.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>4</td>
-        <td>3</td>
-        <td>3</td>
+        <td>8</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.8</td>
       </tr>
       
       <tr>
@@ -403,9 +403,9 @@
       <tr>
         <td class="strong"><a href="#6b2db1090c749507df3c4085302d202c96b9e7f9" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>25</td>
-        <td>17</td>
-        <td>17</td>
+        <td>29</td>
+        <td>20</td>
+        <td>20</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -2204,8 +2204,8 @@
     <h3>app/serializers/item_serializer.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2228,10 +2228,34 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  attributes :id, :name, :description, :unit_price, :merchant_id</code>
+          <code class="ruby">  attributes :id, :name, :description, :merchant_id</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attribute :unit_price do |object|</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="6">
+          <span class="hits">5</span>
+          
+          <code class="ruby">   &quot;#{object.unit_price.to_f / 100}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"> end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">end</code>
@@ -3454,8 +3478,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>17</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
+      <b>20</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3514,19 +3538,19 @@
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">      namespace :merchants do</code>
+          <code class="ruby">      namespace :items do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:merchant_id/items&#39;, to: &#39;items#index&#39;</code>
+          <code class="ruby">        get &#39;/find&#39;, to: &#39;search#show&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:merchant_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
+          <code class="ruby">        get &#39;/find_all&#39;, to: &#39;search#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -3538,19 +3562,19 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">      namespace :invoices do</code>
+          <code class="ruby">      namespace :merchants do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/transactions&#39;, to: &#39;transactions#index&#39;</code>
+          <code class="ruby">        get &#39;/:merchant_id/items&#39;, to: &#39;items#index&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        # get &#39;/:transaction_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
+          <code class="ruby">        get &#39;/:merchant_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -3562,52 +3586,76 @@
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :customers, only: [:index, :show]</code>
+          <code class="ruby">      namespace :invoices do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :invoices, only: [:index, :show]</code>
+          <code class="ruby">        get &#39;/:invoice_id/transactions&#39;, to: &#39;transactions#index&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">      resources :items, only: [:index, :show]</code>
+          
+          <code class="ruby">        # get &#39;/:transaction_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="20">
           
-          <code class="ruby">      resources :transactions, only: [:index, :show]</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :merchants, only: [:index, :show]</code>
+          <code class="ruby">      resources :customers, only: [:index, :show]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
+          <code class="ruby">      resources :invoices, only: [:index, :show]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      resources :items, only: [:index, :show]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      resources :transactions, only: [:index, :show]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      resources :merchants, only: [:index, :show]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
           <code class="ruby">      resources :invoice_items, only: [:index, :show]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">end</code>

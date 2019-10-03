@@ -243,6 +243,10 @@
         null,
         1,
         1,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         1,
@@ -793,6 +797,10 @@
         1,
         1,
         1,
+        null,
+        1,
+        5,
+        null,
         null
       ],
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/api/v1/merchants/invoices_controller.rb": [
@@ -854,6 +862,6 @@
         null
       ]
     },
-    "timestamp": 1570116480
+    "timestamp": 1570121534
   }
 }
