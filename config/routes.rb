@@ -6,9 +6,17 @@ Rails.application.routes.draw do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
       end
+      namespace :items do
+        get '/find', to: 'search#show'
+        get '/find_all', to: 'search#index'
+      end
       namespace :merchants do
         get '/:merchant_id/items', to: 'items#index'
         get '/:merchant_id/invoices', to: 'invoices#index'
+      end
+      namespace :invoices do
+        get '/:invoice_id/transactions', to: 'transactions#index'
+        # get '/:transaction_id/invoices', to: 'invoices#index'
       end
       resources :customers, only: [:index, :show]
       resources :invoices, only: [:index, :show]

@@ -1,4 +1,4 @@
- This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20191001140109) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "invoice_id"
     t.bigint "credit_card_number"
-    t.string "credit_card_expiration_date"
     t.string "result"
+    t.string "credit_card_expiration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_transactions_on_invoice_id"
