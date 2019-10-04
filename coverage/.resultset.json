@@ -178,8 +178,8 @@
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/factories/customers.rb": [
         1,
         1,
-        78,
-        82,
+        79,
+        83,
         null,
         null
       ],
@@ -188,8 +188,8 @@
         1,
         1,
         1,
+        29,
         28,
-        27,
         null,
         null
       ],
@@ -198,16 +198,16 @@
         1,
         1,
         1,
-        60,
+        61,
         null,
         null
       ],
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/factories/items.rb": [
         1,
         1,
-        56,
-        53,
-        53,
+        57,
+        54,
+        54,
         1,
         null,
         null
@@ -215,7 +215,7 @@
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/spec/factories/merchants.rb": [
         1,
         1,
-        88,
+        89,
         null,
         null
       ],
@@ -223,8 +223,8 @@
         1,
         1,
         1,
-        26,
-        26,
+        28,
+        28,
         null,
         null
       ],
@@ -255,6 +255,7 @@
         1,
         1,
         null,
+        1,
         1,
         1,
         1,
@@ -297,6 +298,10 @@
         null,
         1,
         null,
+        null,
+        null,
+        1,
+        1,
         null,
         null,
         null
@@ -914,6 +919,24 @@
         1,
         null,
         1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         1,
@@ -1916,6 +1939,22 @@
         null,
         null
       ],
+      "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/api/v1/invoices/customers_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/alecwells/turing/3module/projects/rales_engine_project/rales_engine/app/controllers/api/v1/invoices/transactions_controller.rb": [
         1,
         null,
@@ -2132,6 +2171,6 @@
         null
       ]
     },
-    "timestamp": 1570194698
+    "timestamp": 1570196971
   }
 }
