@@ -1,16 +1,25 @@
 class Api::V1::Merchants::SearchController < ApplicationController
 
   def index
-    render json: MerchantSerializer.new(Merchant.where(merchant_params))
+    if merchant_params[:name]
+      render json: MerchantSerializer.new(Merchant.find_all_name_downcase(merchant_params))
+    else
+      render json: MerchantSerializer.new(Merchant.where(merchant_params))
+    end
   end
 
   def show
-    render json: MerchantSerializer.new(Merchant.find_by(merchant_params))
+    if merchant_params[:name]
+      render json: MerchantSerializer.new(Merchant.find_name_downcase(merchant_params))
+    elsif !merchant_params.empty?
+      render json: MerchantSerializer.new(Merchant.find_by(merchant_params))
+    end
   end
 
 private
 
   def merchant_params
+    params[:name] = params[:name].downcase if params[:name]
     params.permit(:name, :id, :created_at, :updated_at)
   end
 end
