@@ -15,7 +15,12 @@ class Customer < ApplicationRecord
     end
   end
 
-  # def self.find_last_downcase(customer_params)
-  #   find_by('lower(last_name) like ?', "%#{customer_params.values.first}%")
-  # end
+  def self.find_all_downcase(customer_params)
+    if customer_params[:first_name]
+      where('lower(first_name) like ?', "%#{customer_params.values.first}%")
+    else
+      where('lower(last_name) like ?', "%#{customer_params.values.first}%")
+    end
+  end
+
 end

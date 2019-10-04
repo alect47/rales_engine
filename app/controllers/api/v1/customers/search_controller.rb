@@ -1,16 +1,20 @@
 class Api::V1::Customers::SearchController < ApplicationController
 
   def index
-    render json: CustomerSerializer.new(Customer.where(customer_params))
+    if customer_params[:first_name] || customer_params[:last_name]
+      render json: CustomerSerializer.new(Customer.find_all_downcase(customer_params))
+    else
+      render json: CustomerSerializer.new(Customer.where(customer_params))
+    end
   end
 
   def show
     if customer_params[:first_name] || customer_params[:last_name]
       render json: CustomerSerializer.new(Customer.find_downcase(customer_params))
-    # elsif customer_params[:last_name]
-    #   render json: CustomerSerializer.new(Customer.find_last_downcase(customer_params))
-    else
+    elsif !customer_params.empty?
+      # binding.pry
       render json: CustomerSerializer.new(Customer.find_by(customer_params))
+
     end
   end
 
