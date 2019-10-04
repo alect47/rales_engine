@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       end
       namespace :invoices do
         get '/:invoice_id/transactions', to: 'transactions#index'
+        get '/find', to: 'search#show'
+        get '/find_all', to: 'search#index'
         # get '/:transaction_id/invoices', to: 'invoices#index'
       end
       resources :customers, only: [:index, :show]
