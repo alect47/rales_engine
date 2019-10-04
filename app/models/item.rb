@@ -14,18 +14,26 @@ class Item < ApplicationRecord
   end
 
   def self.find_name_downcase(item_params)
-    find_by('lower(name) like ?', "%#{item_params.values.first}%")
+    find_by('lower(name) like ?', "#{item_params.values.first}")
   end
 
   def self.find_all_name_downcase(item_params)
-    where('lower(name) like ?', "%#{item_params.values.first}%")
+    where('lower(name) like ?', "#{item_params.values.first}")
   end
 
   def self.find_description_downcase(item_params)
-    find_by('lower(description) like ?', "%#{item_params.values.first}%")
+    find_by('lower(description) like ?', "#{item_params.values.first}")
   end
 
   def self.find_all_description_downcase(item_params)
-    where('lower(description) like ?', "%#{item_params.values.first}%")
+    where('lower(description) like ?', "#{item_params.values.first}")
+  end
+
+  def self.find_price(item_params)
+    find_by('(unit_price) = ?', "#{((item_params.values.first).to_f*100).round(0)}")
+  end
+
+  def self.find_all_price(item_params)
+    where('(unit_price) = ?', "#{((item_params.values.first).to_f*100).round(0)}")
   end
 end
