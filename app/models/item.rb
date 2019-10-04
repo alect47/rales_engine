@@ -36,4 +36,8 @@ class Item < ApplicationRecord
   def self.find_all_price(item_params)
     where('(unit_price) = ?', "#{((item_params.values.first).to_f*100).round(0)}")
   end
+
+  def self.item_for_invoice(item_params)
+    joins(:invoices).where(invoices: {id: item_params})
+  end
 end
