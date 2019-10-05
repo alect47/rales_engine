@@ -9,5 +9,4 @@ private
   def invoice_item_params
     params.permit(:invoice_id)
   end
-
 end
