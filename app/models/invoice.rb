@@ -12,4 +12,8 @@ class Invoice < ApplicationRecord
   def self.order_invoice
     order(:id)
   end
+
+  def self.find_by_invoiceitem(invoice_params)
+    joins(:invoice_items).find_by(invoice_items: {id: invoice_params})
+  end
 end

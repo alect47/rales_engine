@@ -13,12 +13,17 @@ class Item < ApplicationRecord
     order(:id)
   end
 
+  def self.find_by_invoiceitem(invoice_params)
+    joins(:invoice_items).find_by(invoice_items: {id: invoice_params})
+  end
+
   def self.find_name_downcase(item_params)
     find_by('lower(name) like ?', "#{item_params.values.first}")
   end
 
   def self.find_all_name_downcase(item_params)
-    where('lower(name) like ?', "#{item_params.values.first}")
+    where(item_params)
+    # where('lower(name) like ?', "#{item_params.values.first}")
   end
 
   def self.find_description_downcase(item_params)
@@ -35,5 +40,9 @@ class Item < ApplicationRecord
 
   def self.find_all_price(item_params)
     where('(unit_price) = ?', "#{((item_params.values.first).to_f*100).round(0)}")
+  end
+
+  def self.item_for_invoice(item_params)
+    joins(:invoices).where(invoices: {id: item_params})
   end
 end
