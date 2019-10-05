@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       namespace :customers do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
+        get '/:customer_id/invoices', to: 'invoices#index'
+        get '/:customer_id/transactions', to: 'transactions#index'
       end
       namespace :items do
         get '/find', to: 'search#show'
