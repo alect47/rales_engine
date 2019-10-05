@@ -13,6 +13,10 @@ class Item < ApplicationRecord
     order(:id)
   end
 
+  def self.find_by_invoiceitem(invoice_params)
+    joins(:invoice_items).find_by(invoice_items: {id: invoice_params})
+  end
+
   def self.find_name_downcase(item_params)
     find_by('lower(name) like ?', "#{item_params.values.first}")
   end
