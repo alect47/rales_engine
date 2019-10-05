@@ -12,9 +12,7 @@ class Api::V1::Customers::SearchController < ApplicationController
     if customer_params[:first_name] || customer_params[:last_name]
       render json: CustomerSerializer.new(Customer.find_downcase(customer_params))
     elsif !customer_params.empty?
-      # binding.pry
       render json: CustomerSerializer.new(Customer.find_by(customer_params))
-
     end
   end
 
