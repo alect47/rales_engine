@@ -12,6 +12,10 @@ class Merchant < ApplicationRecord
   def self.find_all_name_downcase(merchant_params)
     where('lower(name) like ?', "%#{merchant_params.values.first}%")
   end
+
+  def self.find_by_invoice(customer_params)
+    joins(:invoices).find_by(invoices: {id: customer_params})
+  end
   #
 end
 

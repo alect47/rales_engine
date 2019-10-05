@@ -18,7 +18,8 @@ class Item < ApplicationRecord
   end
 
   def self.find_all_name_downcase(item_params)
-    where('lower(name) like ?', "#{item_params.values.first}")
+    where(item_params)
+    # where('lower(name) like ?', "#{item_params.values.first}")
   end
 
   def self.find_description_downcase(item_params)
