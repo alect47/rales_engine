@@ -9,5 +9,4 @@ private
   def item_params
     params.permit(:merchant_id)
   end
-
 end
