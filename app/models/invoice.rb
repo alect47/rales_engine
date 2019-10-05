@@ -28,4 +28,5 @@ class Invoice < ApplicationRecord
       .sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
+
 end

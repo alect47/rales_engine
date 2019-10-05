@@ -30,6 +30,18 @@ class Merchant < ApplicationRecord
       .limit(limit)
   end
 
+
+  def favorite_customer
+    a = invoices.joins(:transactions)
+      .select("count(transactions.id), invoices.customer_id")
+      .group(:customer_id)
+      .merge(Transaction.successful)
+      .order("count(transactions.id) desc")
+
+    customer_id = a[0].customer_id
+  end
+#   a.invoices.joins(transactions: [:invoice]).select("invoices.customer_id").group("invoices.customer_id").merge(Transaction.successful).order("sum(invoices.id)").limit(1)
+
   # def self.total_revenue_by_date(date)
   #   joins(:transactions, :invoice_items)
   #     .select('sum(invoice_items.quantity * invoice_items.unit_price) AS revenue')
