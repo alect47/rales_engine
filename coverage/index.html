@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-04T20:11:58-06:00">2019-10-04T20:11:58-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-04T20:15:42-06:00">2019-10-04T20:15:42-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -53,7 +53,7 @@
       <tr>
         <td class="strong"><a href="#6f6a31949ea81b11068aaf1618396092c53af26b" class="src_link" title="app/controllers/api/v1/customers/search_controller.rb">app/controllers/api/v1/customers/search_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>28</td>
+        <td>26</td>
         <td>15</td>
         <td>15</td>
         <td>0</td>
@@ -73,7 +73,7 @@
       <tr>
         <td class="strong"><a href="#4fc4f9616fe5fc66a26ab947525a422d9ecd37f6" class="src_link" title="app/controllers/api/v1/invoice_items/invoices_controller.rb">app/controllers/api/v1/invoice_items/invoices_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
+        <td>12</td>
         <td>6</td>
         <td>6</td>
         <td>0</td>
@@ -914,34 +914,34 @@
           <code class="ruby">    elsif !customer_params.empty?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">      # binding.pry</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="16">
+        <li class="covered" data-hits="3" data-linenumber="15">
           <span class="hits">3</span>
           
           <code class="ruby">      render json: CustomerSerializer.new(Customer.find_by(customer_params))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">private</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -953,46 +953,34 @@
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">private</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
           <code class="ruby">  def customer_params</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="24">
+        <li class="covered" data-hits="31" data-linenumber="22">
           <span class="hits">31</span>
           
           <code class="ruby">    params[:first_name] = params[:first_name].downcase if params[:first_name]</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="25">
+        <li class="covered" data-hits="31" data-linenumber="23">
           <span class="hits">31</span>
           
           <code class="ruby">    params[:last_name] = params[:last_name].downcase if params[:last_name]</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="26">
+        <li class="covered" data-hits="31" data-linenumber="24">
           <span class="hits">31</span>
           
           <code class="ruby">    params.permit(:first_name, :last_name, :id, :created_at, :updated_at)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">end</code>
@@ -1114,67 +1102,55 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby">    # binding.pry</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
           <code class="ruby">    render json: InvoiceSerializer.new(Invoice.order_invoice.find_by_invoiceitem(invoice_params[:invoice_item_id]))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def invoice_params</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">    # binding.pry</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">    params.permit(:invoice_item_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby">end</code>
