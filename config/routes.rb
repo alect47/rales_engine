@@ -5,10 +5,14 @@ Rails.application.routes.draw do
       namespace :customers do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
+        get '/:customer_id/invoices', to: 'invoices#index'
+        get '/:customer_id/transactions', to: 'transactions#index'
       end
       namespace :items do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
+        get '/:item_id/invoice_items', to: 'invoice_items#index'
+        get '/:item_id/merchant', to: 'merchants#show'
       end
       namespace :invoice_items do
         get '/find', to: 'search#show'
@@ -19,12 +23,14 @@ Rails.application.routes.draw do
       namespace :transactions do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
+        get '/:transaction_id/invoice', to: 'invoices#show'
       end
       namespace :merchants do
         get '/find', to: 'search#show'
         get '/find_all', to: 'search#index'
         get '/:merchant_id/items', to: 'items#index'
         get '/:merchant_id/invoices', to: 'invoices#index'
+        get '/most_revenue', to: 'most_revenue#index'
       end
       namespace :invoices do
         get '/:invoice_id/transactions', to: 'transactions#index'

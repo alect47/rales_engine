@@ -13,6 +13,10 @@ class Invoice < ApplicationRecord
     order(:id)
   end
 
+  def self.invoice_for_transaction(invoice_params)
+    joins(:transactions).find_by(transactions: {id: invoice_params})
+  end
+
   def self.find_by_invoiceitem(invoice_params)
     joins(:invoice_items).find_by(invoice_items: {id: invoice_params})
   end

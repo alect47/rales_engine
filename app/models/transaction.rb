@@ -10,4 +10,8 @@ class Transaction < ApplicationRecord
   def self.order_transaction
     order(:id)
   end
+
+  def self.find_all_by_customer(transaction_params)
+    joins(:invoice).where(invoices: {customer_id: transaction_params})
+  end
 end
