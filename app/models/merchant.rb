@@ -16,6 +16,10 @@ class Merchant < ApplicationRecord
   def self.find_by_invoice(customer_params)
     joins(:invoices).find_by(invoices: {id: customer_params})
   end
+
+  def self.find_by_item(merchant_params)
+    joins(:items).find_by(items: {id: merchant_params})
+  end
   #
 end
 
