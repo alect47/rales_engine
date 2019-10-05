@@ -10,7 +10,7 @@ class RevenueSerializer
       data: {
         id: 0,
         attributes: {
-          revenue: @revenue.to_s
+          total_revenue: (@revenue.to_f/100).to_s
         }
       }
     }

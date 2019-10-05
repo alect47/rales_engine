@@ -14,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-05T12:54:27-06:00">2019-10-05T12:54:27-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-05T14:55:42-06:00">2019-10-05T14:55:42-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">99.93%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>83</b> files in total.
-    <b>1406</b> relevant lines. 
-    <span class="green"><b>1406</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>1409</b> relevant lines. 
+    <span class="green"><b>1408</b> lines covered</span> and
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -372,12 +372,12 @@
       
       <tr>
         <td class="strong"><a href="#6ee7580e887526019480cb7f960e16242f57bdc3" class="src_link" title="app/models/merchant.rb">app/models/merchant.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>34</td>
-        <td>13</td>
-        <td>13</td>
-        <td>0</td>
-        <td>1.0</td>
+        <td class="green strong">93.33 %</td>
+        <td>43</td>
+        <td>15</td>
+        <td>14</td>
+        <td>1</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -563,9 +563,9 @@
       <tr>
         <td class="strong"><a href="#6b2db1090c749507df3c4085302d202c96b9e7f9" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>52</td>
-        <td>41</td>
-        <td>41</td>
+        <td>53</td>
+        <td>42</td>
+        <td>42</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -4363,11 +4363,11 @@
         <div class="source_table" id="6ee7580e887526019480cb7f960e16242f57bdc3">
   <div class="header">
     <h3>app/models/merchant.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">93.33 %</span> covered</h4>
     <div>
-      <b>13</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>15</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -4413,7 +4413,7 @@
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">  # has/one/many transactions through invoices</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
@@ -4509,70 +4509,124 @@
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">  #</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">end</code>
+          <code class="ruby">  def self.most_revenue(limit)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    joins(invoices: [:transactions, :invoice_items])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby"># Invoice.joins(:invoice_items, :transactions).select(&quot;sum(quantity * unit_price) as revenue</code>
+          <code class="ruby">      .select(&quot;merchants.*, sum(invoice_items.quantity * invoice_items.unit_price) AS total_revenue&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby"># &quot;).where(&quot; &#39;invoice.created_at.strftime(&quot;%m/%d/%Y&quot;)&#39; = &#39;03/25/2012&#39;&quot;;)</code>
+          <code class="ruby">      .group(:id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      .merge(Transaction.successful)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby"># Invoice.joins(:transactions, :invoice_items)</code>
+          <code class="ruby">      .order(&#39;total_revenue desc&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">#   .select(&#39;sum(invoice_items.quantity * invoice_items.unit_price) AS revenue&#39;)</code>
+          <code class="ruby">      .limit(limit)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">#   .where(&quot;date(invoices.created_at) = &#39;2012-03-09&#39;&quot;)</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">#   .merge(Transaction.successful)</code>
+          <code class="ruby">  #</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"># Invoice.joins(:invoice_items, :transactions).select(&quot;sum(quantity * unit_price) as revenue</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby"># &quot;).where(&quot; &#39;invoice.created_at.strftime(&quot;%m/%d/%Y&quot;)&#39; = &#39;03/25/2012&#39;&quot;;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"># Invoice.joins(:transactions, :invoice_items)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">#   .select(&#39;sum(invoice_items.quantity * invoice_items.unit_price) AS revenue&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">#   .where(&quot;date(invoices.created_at) = &#39;2012-03-09&#39;&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">#   .merge(Transaction.successful)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby"># Invoice.joins(:transactions, :invoice_items).select(&#39;sum(invoice_items.quantity * invoice_items.unit_price) AS revenue&#39;).where(created_at: &#39;2012-03-09&#39;.to_date.all_day).merge(Transaction.successful)</code>
@@ -6160,8 +6214,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>41</b> relevant lines. 
-      <span class="green"><b>41</b> lines covered</span> and
+      <b>42</b> relevant lines. 
+      <span class="green"><b>42</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6361,121 +6415,127 @@
           <code class="ruby">        get &#39;/:merchant_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        get &#39;/most_revenue&#39;, to: &#39;most_revenue#index&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="34">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      namespace :invoices do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/transactions&#39;, to: &#39;transactions#index&#39;</code>
+          <code class="ruby">      namespace :invoices do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/invoice_items&#39;, to: &#39;invoice_items#index&#39;</code>
+          <code class="ruby">        get &#39;/:invoice_id/transactions&#39;, to: &#39;transactions#index&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/items&#39;, to: &#39;items#index&#39;</code>
+          <code class="ruby">        get &#39;/:invoice_id/invoice_items&#39;, to: &#39;invoice_items#index&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/merchant&#39;, to: &#39;merchants#show&#39;</code>
+          <code class="ruby">        get &#39;/:invoice_id/items&#39;, to: &#39;items#index&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/:invoice_id/customer&#39;, to: &#39;customers#show&#39;</code>
+          <code class="ruby">        get &#39;/:invoice_id/merchant&#39;, to: &#39;merchants#show&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="40">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/find&#39;, to: &#39;search#show&#39;</code>
+          <code class="ruby">        get &#39;/:invoice_id/customer&#39;, to: &#39;customers#show&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">        get &#39;/find_all&#39;, to: &#39;search#index&#39;</code>
+          <code class="ruby">        get &#39;/find&#39;, to: &#39;search#show&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        # get &#39;/:transaction_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
+          <code class="ruby">        get &#39;/find_all&#39;, to: &#39;search#index&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        # get &#39;/:transaction_id/invoices&#39;, to: &#39;invoices#index&#39;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="44">
           
-          <code class="ruby">      resources :customers, only: [:index, :show]</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :invoices, only: [:index, :show]</code>
+          <code class="ruby">      resources :customers, only: [:index, :show]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :items, only: [:index, :show]</code>
+          <code class="ruby">      resources :invoices, only: [:index, :show]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :transactions, only: [:index, :show]</code>
+          <code class="ruby">      resources :items, only: [:index, :show]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :merchants, only: [:index, :show]</code>
+          <code class="ruby">      resources :transactions, only: [:index, :show]</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :invoice_items, only: [:index, :show]</code>
+          <code class="ruby">      resources :merchants, only: [:index, :show]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      resources :invoice_items, only: [:index, :show]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">end</code>

@@ -20,4 +20,12 @@ class Invoice < ApplicationRecord
   def self.find_by_invoiceitem(invoice_params)
     joins(:invoice_items).find_by(invoice_items: {id: invoice_params})
   end
+
+  def self.total_revenue_by_date(date)
+    joins(:transactions, :invoice_items)
+      .where("date(invoices.created_at) = ?", date)
+      .merge(Transaction.successful)
+      .sum("invoice_items.quantity * invoice_items.unit_price")
+  end
+
 end
