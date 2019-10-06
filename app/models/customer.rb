@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   has_many :transactions, through: :invoices
   has_many :items, through: :invoice_items
 
+  def favorite_merchant
+    
+  end
+
   def self.find_downcase(customer_params)
     if customer_params[:first_name]
       find_by('lower(first_name) like ?', "%#{customer_params.values.first}%")
