@@ -45,4 +45,43 @@ class Item < ApplicationRecord
   def self.item_for_invoice(item_params)
     joins(:invoices).where(invoices: {id: item_params})
   end
+
+  def self.most_revenue(quantity)
+    joins(:transactions, :invoice_items)
+    .select("items.*, sum(invoice_items.quantity * invoice_items.unit_price) as rev")
+    .group(:id)
+    .merge(Transaction.successful)
+    .order('rev desc')
+    .limit(quantity)
+  end
+
+  # def best_day
+  #   invoices.joins(:transactions, :invoice_items)
+  #     .merge(Transaction.successful)
+  #     .select("invoices.created_at AS day, sum(invoice_items.quantity) AS num_sold")
+  #     .group('date')
+  #     .order('num_sold desc, day desc')
+  #     .limit(10)
+  # end
+
+  def best_day
+    invoices.joins(:transactions)
+      .merge(Transaction.successful)
+      .select("invoices.created_at AS date, sum(invoice_items.quantity) AS num_sold")
+      .group('date')
+      .order('num_sold desc, date desc')
+      .limit(1)[0].date
+  end
+  #Why doesn't this work?
+  # def best_day
+  #   invoices.joins(:transactions, :invoice_items)
+  #     .merge(Transaction.successful)
+  #     .select("invoices.created_at AS date, sum(invoice_items.quantity) AS num_sold")
+  #     .group('date')
+  #     .order('num_sold desc, date desc')
+  #     .limit(1)[0].date
+  # end
+
 end
+
+# SELECT  invoices.created_at AS date, sum(invoice_items.quantity) AS num_sold FROM "invoices" INNER JOIN "transactions" ON "transactions"."invoice_id" = "invoices"."id" INNER JOIN "invoice_items" "invoice_items_invoices" ON "invoice_items_invoices"."invoice_id" = "invoices"."id" INNER JOIN "invoice_items" ON "invoices"."id" = "invoice_items"."invoice_id" WHERE "invoice_items"."item_id" = 1099 AND "transactions"."result" = 'success' GROUP BY date ORDER BY num_sold desc, date desc LIMIT 10;

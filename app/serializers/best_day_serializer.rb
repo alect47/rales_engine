@@ -1,7 +1,7 @@
-class RevenueSerializer
+class BestDaySerializer
   # include FastJsonapi::ObjectSerializer
-  def initialize(revenue)
-    @revenue = revenue
+  def initialize(date)
+    @date = date
   end
 
   #this makes custome serializer, can do for other things, assign whatever id we want
@@ -10,7 +10,7 @@ class RevenueSerializer
       data: {
         id: 0,
         attributes: {
-          total_revenue: (@revenue.to_f/100).to_s
+          best_day: @date.strftime('%Y-%m-%d')
         }
       }
     }

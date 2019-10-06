@@ -6,6 +6,15 @@ class Customer < ApplicationRecord
   has_many :invoice_items, through: :invoices
   has_many :transactions, through: :invoices
   has_many :items, through: :invoice_items
+  has_many :merchants, through: :invoices
+
+  def favorite_merchant
+    merchants.joins(invoices: :transactions)
+    .merge(Transactions.successful)
+    .group(:id)
+    .order("count(transactions.id)")
+    .limit(1)
+  end
 
   def self.find_downcase(customer_params)
     if customer_params[:first_name]
