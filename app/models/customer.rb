@@ -12,8 +12,9 @@ class Customer < ApplicationRecord
     merchants.joins(invoices: :transactions)
     .merge(Transaction.successful)
     .group(:id)
-    .order("count(transactions.id)")
+    .order("count(transactions.id) desc")
     .limit(1)
+    .first
   end
 
   def self.find_downcase(customer_params)

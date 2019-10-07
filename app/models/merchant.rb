@@ -40,7 +40,6 @@ class Merchant < ApplicationRecord
 
     customer_id = a[0].customer_id
   end
-#   a.invoices.joins(transactions: [:invoice]).select("invoices.customer_id").group("invoices.customer_id").merge(Transaction.successful).order("sum(invoices.id)").limit(1)
 
   # def self.total_revenue_by_date(date)
   #   joins(:transactions, :invoice_items)
@@ -50,9 +49,3 @@ class Merchant < ApplicationRecord
   # end
   #
 end
-
-# Invoice.joins(:invoice_items, :transactions).select("sum(quantity * unit_price) as revenue
-# ").where(" 'invoice.created_at.strftime("%m/%d/%Y")' = '03/25/2012'";)
-
-
-# Invoice.joins(:transactions, :invoice_items).select('sum(invoice_items.quantity * invoice_items.unit_price) AS revenue').where(created_at: '2012-03-09'.to_date.all_day).merge(Transaction.successful)
