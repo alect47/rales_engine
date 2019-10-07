@@ -1,5 +1,4 @@
 class RevenueSerializer
-  # include FastJsonapi::ObjectSerializer
   def initialize(revenue)
     @revenue = revenue
   end
@@ -15,7 +14,4 @@ class RevenueSerializer
       }
     }
   end
-  # attribute :revenue do |object|
-  #   object.to_s
-  # end
 end

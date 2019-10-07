@@ -22,7 +22,6 @@ class Item < ApplicationRecord
   end
 
   def self.find_all_name_downcase(item_params)
-    # where(item_params)
     where('lower(name) like ?', "#{item_params.values.first}")
   end
 
@@ -55,14 +54,6 @@ class Item < ApplicationRecord
     .limit(quantity)
   end
 
-  # def best_day
-  #   invoices.joins(:transactions, :invoice_items)
-  #     .merge(Transaction.successful)
-  #     .select("invoices.created_at AS day, sum(invoice_items.quantity) AS num_sold")
-  #     .group('date')
-  #     .order('num_sold desc, day desc')
-  #     .limit(10)
-  # end
 
   def best_day
     invoices.joins(:transactions)
@@ -83,5 +74,3 @@ class Item < ApplicationRecord
   # end
 
 end
-
-# SELECT  invoices.created_at AS date, sum(invoice_items.quantity) AS num_sold FROM "invoices" INNER JOIN "transactions" ON "transactions"."invoice_id" = "invoices"."id" INNER JOIN "invoice_items" "invoice_items_invoices" ON "invoice_items_invoices"."invoice_id" = "invoices"."id" INNER JOIN "invoice_items" ON "invoices"."id" = "invoice_items"."invoice_id" WHERE "invoice_items"."item_id" = 1099 AND "transactions"."result" = 'success' GROUP BY date ORDER BY num_sold desc, date desc LIMIT 10;
